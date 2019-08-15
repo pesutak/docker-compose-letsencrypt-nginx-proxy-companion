@@ -294,6 +294,11 @@ server {
 		include /etc/nginx/vhost.d/default_location;
 		{{ end }}
 	}
+	
+	location /api/ {
+		proxy_pass  http://fe-api;
+		client_max_body_size  10M;
+	}
 }
 
 {{ end }}
