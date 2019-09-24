@@ -295,9 +295,16 @@ server {
 		{{ end }}
 	}
 	
+	# FMWI API
 	location /api/ {
 		proxy_pass  http://fe-api;
 		client_max_body_size  10M;
+	}
+	
+	# DNN API ON GPU SERVER
+	location /api2/ {
+		proxy_pass  http://95.216.66.186:8085;
+		client_max_body_size  5M;
 	}
 }
 
